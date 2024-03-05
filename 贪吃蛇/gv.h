@@ -20,8 +20,13 @@ struct apples
 extern char key;
 extern const int menuw;
 extern const int menuh;
+extern const int framew;
+extern const int frameh;
 extern int delay;
 extern int difflevl;
+extern int addx;
+extern int addy;
 void drawmenu(int sletction);
 void drawdiffmenu(int sletction);
 int drawgame(int apx,int apy,snack*);
+void genApple(int eat, apples &apple);

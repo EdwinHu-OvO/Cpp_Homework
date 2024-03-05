@@ -7,17 +7,19 @@ int drawgame(int apx,int apy,snack* snackB)
 	switch (difflevl)
 	{
 	case 1:
-		delay = 1000;
-		break;
-	case 2:
 		delay = 500;
 		break;
-	case 3:
+	case 2:
 		delay = 250;
+		break;
+	case 3:
+		delay = 150;
 		break;
 	default:
 		return -1;
 	}
+	snackB->x += addx;
+	snackB->y += addy;
 	for (int i = 0; i < frameh; i++)
 	{
 		switch (i)
@@ -55,6 +57,15 @@ int drawgame(int apx,int apy,snack* snackB)
 			cout << endl;
 		}
 	}
-	//Sleep(delay);
+	Sleep(delay);
 	return 1;
+}
+void genApple(int eat,apples &apple)
+{
+	if (eat == 1)
+	{
+		apple.x = (rand() % 48) + 1;
+		apple.y = (rand() % 18) + 1;
+		apple.eat = 0;
+	}
 }

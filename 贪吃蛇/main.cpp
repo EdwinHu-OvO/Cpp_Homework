@@ -1,9 +1,11 @@
 #include"gv.h"
 using namespace std;
 char key=0;
-int difflevl = 1;
+int difflevl = 3;
 int delay = 1000;
-char ver[] = "dev1.3.2";
+int addx = 1;
+int addy = 0;
+char ver[] = "dev1.5.4";
 void main()
 {
 	int* selection  = new int;
@@ -97,9 +99,8 @@ ingame:
 		snackB->y = 1;
 		srand(time(NULL));
 		apples apple;
-		apple.eat = 0;
-		apple.x = (rand() % 48) + 1;
-		apple.y = (rand() % 18) + 1;
+		apple.eat = 1;
+		genApple(apple.eat, apple);
 	while (1)
 	{
 		cout << "贪吃蛇 " << ver << " By EdwinHu-OvO" << endl;
@@ -112,21 +113,46 @@ ingame:
 			cout << endl <<"想啥呢，还没写完"<<endl;
 		}
 		drawgame(apple.x,apple.y,snackB);
-		while (_kbhit)
+		if (snackB->x == apple.x&& snackB->y == apple.y)
+		{
+			apple.eat = 1;
+		}
+		genApple(apple.eat, apple);
+		while (_kbhit())
 		{
 			switch (_getch())
 			{
 			case 'w':
-				snackB->y--;
+				if (addy == -1 && addx == 0);
+				else
+				{
+					addy = -1;
+					addx = 0;
+				}
 				break;
 			case 's':
-				snackB->y++;
+				if (addy == 1 && addx == 0);
+				else
+				{
+					addy = 1;
+					addx = 0;
+				}
 				break;
 			case 'd':
-				snackB->x++;
+				if (addy == 0 && addx == 1);
+				else
+				{
+					addy = 0;
+					addx = 1;
+				}
 				break;
 			case 'a':
-				snackB->x--;
+				if (addy == 0 && addx == -1);
+				else
+				{
+					addy = 0;
+					addx = -1;
+				}
 				break;
 			case 'e':
 				apple.eat=1;
@@ -136,7 +162,6 @@ ingame:
 			}
 			break;
 		}
-		//Sleep(1000);
 		system("cls");
 	}
 exittag:;
