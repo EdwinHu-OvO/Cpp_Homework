@@ -24,6 +24,9 @@
     <ClCompile Include="inganme.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="listenkb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gv.h">

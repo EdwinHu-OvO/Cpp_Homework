@@ -60,12 +60,3 @@ int drawgame(int apx,int apy,snack* snackB)
 	Sleep(delay);
 	return 1;
 }
-void genApple(int eat,apples &apple)
-{
-	if (eat == 1)
-	{
-		apple.x = (rand() % 48) + 1;
-		apple.y = (rand() % 18) + 1;
-		apple.eat = 0;
-	}
-}

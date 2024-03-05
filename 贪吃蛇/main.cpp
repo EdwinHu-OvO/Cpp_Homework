@@ -1,106 +1,59 @@
 #include"gv.h"
 using namespace std;
 char key=0;
-int difflevl = 3;
+int difflevl = 1;
 int delay = 1000;
 int addx = 1;
 int addy = 0;
+int selection = 1;
+apples apple;
 char ver[] = "dev1.5.4";
 void main()
 {
-	int* selection  = new int;
-	goto ingame;//only for dev
+	//goto ingame;//only for dev
 mainmenu:
-	*selection = 1;
 	while (1)
 	{
 		cout << "Ì°³ÔÉß " << ver <<" By EdwinHu-OvO" << endl;
-		drawmenu(*selection);
-		//while (!_kbhit())
-		key = 1;
-		while (key)
+		drawmenu(selection);
+		switch (liskb(0))
 		{
-			key = _getch();
-			if (key == 'w' && *selection>1)
-			{
-				(*selection)--;
-				break;
-			}
-			else if (key == 's' && *selection<3)
-			{
-				(*selection)++;
-				break;
-			}
-			else if (key == 32 && *selection==3)
-			{
-				delete selection;
-				goto exittag;
-			}
-			else if (key == 32 && *selection == 2)
-			{
-				goto diffmenutag;
-			}
-			else if (key == 32 && *selection == 1)
-			{
-				goto ingame;
-			}
-			else
-				key =1;
+		case 3:
+			goto exittag;
+			break;
+		case 2:
+			goto diffmenutag;
+			break;
+		case 1:
+			goto ingame;
+			break;
 		}
 		system("cls");
 	}
 diffmenutag:
 	system("cls");
-	*selection = 1;
+	selection = 1;
 	while (1)
 	{
 		cout << "Ì°³ÔÉß " << ver << " By EdwinHu-OvO" << endl;
-		drawdiffmenu(*selection);
-		key = 1;
-		while (key)
+		drawdiffmenu(selection);
+		switch (liskb(1))
 		{
-			key = _getch();
-			if (key == 'w' && *selection>1)
-			{
-				(*selection)--;
-				break;
-			}
-			else if (key == 's' && *selection<2)
-			{
-				(*selection)++;
-				break;
-			}
-			else if (key == 'd' && *selection == 1 && difflevl<3)
-			{
-				difflevl++;
-				break;
-			}
-			else if (key == 'a' && *selection == 1 && difflevl>1)
-			{
-				difflevl--;
-				break;
-			}
-			else if (key == 32 && *selection == 2)
-			{
-				system("cls");
-				goto mainmenu;
-			}
-			else
-				key = 1;
+		case 2:
+			goto mainmenu;
+			break;
 		}
 		system("cls");
 	}
 ingame:
-	delete selection;
 	system("cls");
 		snack* snackB = new snack;
 		snackB->part = 1;
 		snackB->x = 1;
 		snackB->y = 1;
 		srand(time(NULL));
-		apples apple;
 		apple.eat = 1;
-		genApple(apple.eat, apple);
+		apple.genApple(apple.eat, apple);
 	while (1)
 	{
 		cout << "Ì°³ÔÉß " << ver << " By EdwinHu-OvO" << endl;
@@ -117,51 +70,8 @@ ingame:
 		{
 			apple.eat = 1;
 		}
-		genApple(apple.eat, apple);
-		while (_kbhit())
-		{
-			switch (_getch())
-			{
-			case 'w':
-				if (addy == -1 && addx == 0);
-				else
-				{
-					addy = -1;
-					addx = 0;
-				}
-				break;
-			case 's':
-				if (addy == 1 && addx == 0);
-				else
-				{
-					addy = 1;
-					addx = 0;
-				}
-				break;
-			case 'd':
-				if (addy == 0 && addx == 1);
-				else
-				{
-					addy = 0;
-					addx = 1;
-				}
-				break;
-			case 'a':
-				if (addy == 0 && addx == -1);
-				else
-				{
-					addy = 0;
-					addx = -1;
-				}
-				break;
-			case 'e':
-				apple.eat=1;
-				apple.x = (rand() % 48) + 1;
-				apple.y = (rand() % 18) + 1;
-				break;
-			}
-			break;
-		}
+		liskb(2);
+		apple.genApple(apple.eat, apple);
 		system("cls");
 	}
 exittag:;

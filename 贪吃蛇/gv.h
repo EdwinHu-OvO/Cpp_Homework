@@ -4,15 +4,27 @@
 #include<Windows.h>
 #include<cstdlib>
 #include<ctime>
-struct snack
+class snack
 {
+public:
 	int part;//1 for head;0 for body;3 for end
 	int x;
 	int y;
 	snack* next;
 };
-struct apples
+class apples
 {
+public:
+	void genApple(int eat, apples &apple)
+	{
+		if (eat == 1)
+		{
+			apple.x = (rand() % 48) + 1;
+			apple.y = (rand() % 18) + 1;
+			apple.eat = 0;
+		}
+	}
+public:
 	int x;
 	int y;
 	int eat;
@@ -26,7 +38,9 @@ extern int delay;
 extern int difflevl;
 extern int addx;
 extern int addy;
+extern int selection;
+extern apples apple;
 void drawmenu(int sletction);
 void drawdiffmenu(int sletction);
 int drawgame(int apx,int apy,snack*);
-void genApple(int eat, apples &apple);
+int liskb(int mode);
