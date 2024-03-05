@@ -2,7 +2,7 @@
 using namespace std;
 const int frameh = 20;
 const int framew = 50;
-int drawgame(int apx,int apy,snack* snackB)
+int drawgame(apples apple,snack* snackB)
 {
 	switch (difflevl)
 	{
@@ -36,7 +36,7 @@ int drawgame(int apx,int apy,snack* snackB)
 			cout << "*";
 			for (int x = 1; x <= 48; x++)
 			{
-				if (x == apx&& i == apy)
+				if (x == apple.x&& i == apple.y)
 					cout << '@';
 				else if (x == snackB->x&&i == snackB->y)
 				{

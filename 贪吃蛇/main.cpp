@@ -1,13 +1,13 @@
 #include"gv.h"
 using namespace std;
 char key=0;
-int difflevl = 1;
+int difflevl = 3;
 int delay = 1000;
 int addx = 1;
 int addy = 0;
 int selection = 1;
 apples apple;
-char ver[] = "dev1.5.4";
+char ver[] = "dev2.5.4";
 void main()
 {
 	//goto ingame;//only for dev
@@ -49,11 +49,10 @@ ingame:
 	system("cls");
 		snack* snackB = new snack;
 		snackB->part = 1;
-		snackB->x = 1;
-		snackB->y = 1;
+		snackB->x = 24;
+		snackB->y = 9;
 		srand(time(NULL));
-		apple.eat = 1;
-		apple.genApple(apple.eat, apple);
+		apple = { (rand() % 48) + 1, (rand() % 18) + 1, 0 };
 	while (1)
 	{
 		cout << "贪吃蛇 " << ver << " By EdwinHu-OvO" << endl;
@@ -65,13 +64,10 @@ ingame:
 			cout << " Diffcult level:" << difflevl;
 			cout << endl <<"想啥呢，还没写完"<<endl;
 		}
-		drawgame(apple.x,apple.y,snackB);
-		if (snackB->x == apple.x&& snackB->y == apple.y)
-		{
-			apple.eat = 1;
-		}
+		drawgame(apple,snackB);
+		snackB->eatapple(snackB,apple);
 		liskb(2);
-		apple.genApple(apple.eat, apple);
+		apple.genApple(apple);
 		system("cls");
 	}
 exittag:;

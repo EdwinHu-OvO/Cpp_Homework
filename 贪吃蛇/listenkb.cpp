@@ -82,6 +82,8 @@ int liskb(int mode)
 			switch (_getch())
 			{
 			case 'w':
+				if (addy == 1 && addx == 0)
+					break;
 				if (addy == -1 && addx == 0);
 				else
 				{
@@ -90,6 +92,8 @@ int liskb(int mode)
 				}
 				break;
 			case 's':
+				if (addy == -1 && addx == 0)
+					break;
 				if (addy == 1 && addx == 0);
 				else
 				{
@@ -98,6 +102,8 @@ int liskb(int mode)
 				}
 				break;
 			case 'd':
+				if (addy == 0 && addx == -1)
+					break;
 				if (addy == 0 && addx == 1);
 				else
 				{
@@ -106,6 +112,8 @@ int liskb(int mode)
 				}
 				break;
 			case 'a':
+				if (addy == 0 && addx == 1)
+					break;
 				if (addy == 0 && addx == -1);
 				else
 				{
@@ -121,6 +129,6 @@ int liskb(int mode)
 		}
 		return -1;
 	default:
-		break;
+		return -2;
 	}
 }

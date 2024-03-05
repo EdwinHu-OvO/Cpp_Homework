@@ -4,20 +4,12 @@
 #include<Windows.h>
 #include<cstdlib>
 #include<ctime>
-class snack
-{
-public:
-	int part;//1 for head;0 for body;3 for end
-	int x;
-	int y;
-	snack* next;
-};
 class apples
 {
 public:
-	void genApple(int eat, apples &apple)
+	void genApple(apples &apple)
 	{
-		if (eat == 1)
+		if (apple.eat == 1)
 		{
 			apple.x = (rand() % 48) + 1;
 			apple.y = (rand() % 18) + 1;
@@ -28,6 +20,22 @@ public:
 	int x;
 	int y;
 	int eat;
+};
+class snack
+{
+public:
+	void eatapple(snack* snackB,apples &apple)
+	{
+		if (snackB->x == apple.x&& snackB->y == apple.y)
+		{
+			apple.eat = 1;
+		}
+	}
+public:
+	int part;//1 for head;0 for body;3 for end
+	int x;
+	int y;
+	snack* next;
 };
 extern char key;
 extern const int menuw;
@@ -42,5 +50,5 @@ extern int selection;
 extern apples apple;
 void drawmenu(int sletction);
 void drawdiffmenu(int sletction);
-int drawgame(int apx,int apy,snack*);
+int drawgame(apples apple,snack*);
 int liskb(int mode);
