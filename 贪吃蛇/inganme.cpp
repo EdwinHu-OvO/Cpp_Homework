@@ -18,8 +18,6 @@ int drawgame(apples apple,snack* snackB)
 	default:
 		return -1;
 	}
-	snackB->x += addx;
-	snackB->y += addy;
 	for (int i = 0; i < frameh; i++)
 	{
 		switch (i)

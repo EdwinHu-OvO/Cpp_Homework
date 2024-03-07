@@ -64,6 +64,7 @@ ingame:
 			cout << " Diffcult level:" << difflevl;
 			cout << endl <<"想啥呢，还没写完"<<endl;
 		}
+		snackB->move(snackB);
 		drawgame(apple,snackB);
 		snackB->eatapple(snackB,apple);
 		liskb(2);

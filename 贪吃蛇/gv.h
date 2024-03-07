@@ -4,6 +4,8 @@
 #include<Windows.h>
 #include<cstdlib>
 #include<ctime>
+extern int addx;
+extern int addy;
 class apples
 {
 public:
@@ -24,6 +26,11 @@ public:
 class snack
 {
 public:
+	void move(snack *snackB)
+	{
+		snackB->x += addx;
+		snackB->y += addy;
+	}
 	void eatapple(snack* snackB,apples &apple)
 	{
 		if (snackB->x == apple.x&& snackB->y == apple.y)
@@ -44,8 +51,6 @@ extern const int framew;
 extern const int frameh;
 extern int delay;
 extern int difflevl;
-extern int addx;
-extern int addy;
 extern int selection;
 extern apples apple;
 void drawmenu(int sletction);
