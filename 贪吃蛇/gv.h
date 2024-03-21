@@ -9,13 +9,13 @@ extern int addy;
 class apples
 {
 public:
-	void genApple(apples &apple)
+	void genApple()
 	{
-		if (apple.eat == 1)
+		if (eat == 1)
 		{
-			apple.x = (rand() % 48) + 1;
-			apple.y = (rand() % 18) + 1;
-			apple.eat = 0;
+			x = (rand() % 48) + 1;
+			y = (rand() % 18) + 1;
+			eat = 0;
 		}
 	}
 public:
@@ -26,14 +26,14 @@ public:
 class snack
 {
 public:
-	void move(snack *snackB)
+	void move()
 	{
-		snackB->x += addx;
-		snackB->y += addy;
+		x += addx;
+		y += addy;
 	}
-	void eatapple(snack* snackB,apples &apple)
+	void eatapple(apples &apple)
 	{
-		if (snackB->x == apple.x&& snackB->y == apple.y)
+		if (x == apple.x&& y == apple.y)
 		{
 			apple.eat = 1;
 		}

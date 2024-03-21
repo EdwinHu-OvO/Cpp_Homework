@@ -7,7 +7,7 @@ int addx = 1;
 int addy = 0;
 int selection = 1;
 apples apple;
-char ver[] = "dev2.5.4";
+char ver[] = "dev2.5.5";
 void main()
 {
 	//goto ingame;//only for dev
@@ -64,11 +64,11 @@ ingame:
 			cout << " Diffcult level:" << difflevl;
 			cout << endl <<"想啥呢，还没写完"<<endl;
 		}
-		snackB->move(snackB);
+		snackB->move();
 		drawgame(apple,snackB);
-		snackB->eatapple(snackB,apple);
+		snackB->eatapple(apple);
 		liskb(2);
-		apple.genApple(apple);
+		apple.genApple();
 		system("cls");
 	}
 exittag:;
