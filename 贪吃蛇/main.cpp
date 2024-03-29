@@ -7,7 +7,7 @@ int addx = 1;
 int addy = 0;
 int selection = 1;
 apples apple;
-char ver[] = "dev2.5.5";
+char ver[] = "dev2.5.6";
 void main()
 {
 	//goto ingame;//only for dev
