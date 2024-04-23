@@ -4,8 +4,6 @@
 #include<Windows.h>
 #include<cstdlib>
 #include<ctime>
-extern int addx;
-extern int addy;
 class apples
 {
 public:
@@ -39,6 +37,8 @@ public:
 		}
 	}
 public:
+	int addx;
+	int addy;
 	int part;//1 for head;0 for body;3 for end
 	int x;
 	int y;
@@ -57,3 +57,4 @@ void drawmenu(int sletction);
 void drawdiffmenu(int sletction);
 int drawgame(apples apple,snack*);
 int liskb(int mode);
+int liskb(int,snack*);

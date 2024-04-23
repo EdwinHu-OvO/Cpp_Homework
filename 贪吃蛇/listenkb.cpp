@@ -1,6 +1,66 @@
 #include"gv.h"
 using namespace std;
 //mode 0 for menu;1for diffmenu;2for ingame
+int liskb(int mode,snack* snackB)
+{
+	switch (mode)
+	{
+	case 2:
+		while (_kbhit())
+		{
+			switch (_getch())
+			{
+			case 'w':
+				if (snackB->addy == 1 && snackB->addx == 0)
+					break;
+				if (snackB->addy == -1 && snackB->addx == 0);
+				else
+				{
+					snackB->addy = -1;
+					snackB->addx = 0;
+				}
+				break;
+			case 's':
+				if (snackB->addy == -1 && snackB->addx == 0)
+					break;
+				if (snackB->addy == 1 && snackB->addx == 0);
+				else
+				{
+					snackB->addy = 1;
+					snackB->addx = 0;
+				}
+				break;
+			case 'd':
+				if (snackB->addy == 0 && snackB->addx == -1)
+					break;
+				if (snackB->addy == 0 && snackB->addx == 1);
+				else
+				{
+					snackB->addy = 0;
+					snackB->addx = 1;
+				}
+				break;
+			case 'a':
+				if (snackB->addy == 0 && snackB->addx == 1)
+					break;
+				if (snackB->addy == 0 && snackB->addx == -1);
+				else
+				{
+					snackB->addy = 0;
+					snackB->addx = -1;
+				}
+				break;
+			case 'e':
+				apple.eat = 1;
+				break;
+			}
+			break;
+		}
+		return -1;
+	default:
+		return -2;
+	}
+}
 int liskb(int mode)
 {
 	switch (mode)
@@ -75,59 +135,6 @@ int liskb(int mode)
 				return -1;
 			}
 		}
-		return -1;
-	case 2:
-		while (_kbhit())
-		{
-			switch (_getch())
-			{
-			case 'w':
-				if (addy == 1 && addx == 0)
-					break;
-				if (addy == -1 && addx == 0);
-				else
-				{
-					addy = -1;
-					addx = 0;
-				}
-				break;
-			case 's':
-				if (addy == -1 && addx == 0)
-					break;
-				if (addy == 1 && addx == 0);
-				else
-				{
-					addy = 1;
-					addx = 0;
-				}
-				break;
-			case 'd':
-				if (addy == 0 && addx == -1)
-					break;
-				if (addy == 0 && addx == 1);
-				else
-				{
-					addy = 0;
-					addx = 1;
-				}
-				break;
-			case 'a':
-				if (addy == 0 && addx == 1)
-					break;
-				if (addy == 0 && addx == -1);
-				else
-				{
-					addy = 0;
-					addx = -1;
-				}
-				break;
-			case 'e':
-				apple.eat = 1;
-				break;
-			}
-			break;
-		}
-		return -1;
 	default:
 		return -2;
 	}

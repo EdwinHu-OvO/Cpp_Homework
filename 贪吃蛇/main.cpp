@@ -3,8 +3,6 @@ using namespace std;
 char key=0;
 int difflevl = 3;
 int delay = 1000;
-int addx = 1;
-int addy = 0;
 int selection = 1;
 int menuCount = 1;
 snack* snackB = new snack;
@@ -58,6 +56,8 @@ int main()
 			//ingame
 			system("cls");
 			snackB->part = 1;
+			snackB->addx = 1;
+			snackB->addy = 0;
 			snackB->x = 24;
 			snackB->y = 9;
 			srand(time(NULL));
@@ -76,7 +76,7 @@ int main()
 				snackB->move();
 				drawgame(apple, snackB);
 				snackB->eatapple(apple);
-				liskb(2);
+				liskb(2,snackB);
 				apple.genApple();
 				system("cls");
 			}
