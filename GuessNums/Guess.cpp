@@ -2,14 +2,14 @@
 #include<ctime>
 using namespace std;
 
-void main()
+int main()
 {
 	game:
 	int times=1,times1, in,answer,diff,range;
 	cout << "猜数字游戏嘴臭版\n规则：\n1.猜错指定次数关只因。\n2.整数（不知道你在想什么）\n";
 	cout << "Diffcult choose.(0 for lv.0、1 for lv.1、2 for lv.2、3 for Inpossible\n";
 	cin >> diff;
-	srand(time(nullptr));
+	srand(time(NULL));
 	while (diff != 0 && diff != 1 && diff != 2 && diff != 3)
 	{
 		cout << "你他妈看不懂字吗\n重来！\n";
@@ -99,4 +99,5 @@ void main()
 		}
 		else; 
 	}
+	return 0;
 }
